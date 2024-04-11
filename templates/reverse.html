@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Reverse{% endblock %}
+
+
+{% block content %}
+    <div class="arrow">
+        <a href="/inward">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
+        </a>
+    </div>
+    <div class="back-arrow">
+        <a href="/back">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Back Arrow">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">3 - Reverse</h1>
+        <p class="page-paragraph">Dives that start with the number 3 are categorized as Reverse dives. These dives are initiated with the diver facing the water and involve the diver performing a forward takeoff with backwards rotation…
+        </p>
+    </div>
+{% endblock %}

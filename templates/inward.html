@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Inward{% endblock %}
+
+
+{% block content %}
+    <div class="arrow">
+        <a href="/twister">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
+        </a>
+    </div>
+    <div class="back-arrow">
+        <a href="/reverse">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Back Arrow">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">4 - Inward</h1>
+        <p class="page-paragraph">Dives that start with the number 4 are categorized as Inward dives. These dives are initiated with the diver facing away from the water and involve the diver performing a backwards takeoff with forward rotation…
+        </p>
+    </div>
+{% endblock %}

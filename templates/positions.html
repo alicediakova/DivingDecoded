@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Positions{% endblock %}
+
+
+{% block content %}
+    <div class="arrow">
+        <a href="/front">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
+        </a>
+    </div>
+    <div class="back-arrow">
+        <a href="/intro">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Back Arrow">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">Positions</h1>
+        <p class="page-paragraph">…represent the shape of the diver during the dive:</p>
+    </div>
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-md">
+                <div class="cell-content">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{{ url_for('static', filename='images/A.png') }}" class="custom-img left-spacing" alt="Straight">
+                        </div>
+                        <div class="col-9">
+                            <h2 class="cell-title">A</h2>
+                            <p>Straight position without any bend at the knees or hips.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="cell-content">
+                    <div class="row">
+                        <div class="col-9">
+                            <h2 class="cell-title">B</h2>
+                            <p>Pike position with legs straight but a bend at the hips.
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <img src="{{ url_for('static', filename='images/B.png') }}" class="custom-img" alt="Pike">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="cell-content">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{{ url_for('static', filename='images/C.png') }}" class="custom-img left-spacing" alt="Tuck">
+                        </div>
+                        <div class="col-9">
+                            <h2 class="cell-title">C</h2>
+                            <p>Tuck position with both knees and hips bent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="cell-content">
+                    <div class="row">
+                        <div class="col-9">
+                            <h2 class="cell-title">D</h2>
+                            <p>Free position, a combination of the other positions, usually used in twisting dives.
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <img src="{{ url_for('static', filename='images/D.png') }}" class="custom-img" alt="Free">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
