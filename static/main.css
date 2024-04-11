@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #595959;
+}
+
+nav {
+    background-color: #f2f2f2ff;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    color: #595959;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-right: 20px;
+    margin-left:15px;
+}
+
+nav a:hover {
+    font-weight: bold;
+    color: inherit; /* Keeps the link color the same */
+    text-decoration: none;
+}
+
+.active-nav-item {
+    font-weight: bold;
+}
+
+.responsive-img {
+    max-width: 85%;
+    height: auto;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.right {
+    float: right;
+}
+
+.arrow img {
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    top: 75px;
+    right: 25px;
+    z-index: 1;
+    transition: transform 0.2s ease-in-out;
+}
+
+.arrow img:hover {
+    transform: scale(1.1);
+}
+
+.back-arrow img {
+    margin-left: 25px;
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    top: 75px;
+    transform: scale(-1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.back-arrow img:hover {
+    transform: scale(-1.1);
+}
+
+.retry-button img {
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    top: 75px;
+    right: 25px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.retry-button img:hover {
+    transform: scale(1.1);
+}
+
+.overlay-link-divingboard {
+    position: relative;
+    display: inline-block;
+    margin-right: 35px;
+}
+
+.overlay-text-divingboard {
+    position: relative;
+    z-index: 2;
+}
+
+.overlay-img-divingboard {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 200px;
+    height: 40px;
+    z-index: 1;
+    transition: transform 0.2s ease-in-out;
+}
+
+.overlay-link-divingboard:hover .overlay-img-divingboard {
+    transform: scale(1.05);
+}
+
+.overlay-link-quiz {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.overlay-text-quiz {
+    position: relative;
+    z-index: 2;
+}
+
+.overlay-img-quiz {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 90%;
+    height: 90%;
+    z-index: 1;   
+    transition: transform 0.2s ease-in-out;
+}
+
+.overlay-link-quiz:hover .overlay-img-quiz {
+    transform: scale(1.05);
+}
+
+.more-tab {
+    display: none;
+    pointer-events: none;
+    padding: 10px;
+    letter-spacing: 5px;
+    margin-left: 5px;
+    line-height: 2.5;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.page-title {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: 3.5em;
+    font-weight: lighter;
+}
+
+.container {
+    padding: 25px;
+    margin: 0;
+    max-width: 100%;
+}
+
+.container .row .col-md {
+    padding: 7px; /* Remove padding from the column */
+}
+
+.cell-content {
+    background-color: #f6f6f6ff;
+    border-radius: 50px; /* Adjust as needed */
+    padding: 10px; /* Adjust as needed */
+    height: 100%; /* Fill the entire cell */
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    font-size: 1.4em;
+    transition: transform 0.2s ease-in-out; /* Add this line */
+}
+
+.cell-content:hover{
+    transform: scale(1.03); /* Add this line */
+}
+
+.cell-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.cell-content p, .cell-content ul {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.cell-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-left: 40px;
+}
+
+@media (max-width: 700px) {
+    .col-md {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+} 
+
+.submit-button {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 55px;
+    width: 130px;
+    background-color: #f7c603;
+    color: #595959;
+    font-size: larger;
+    transition: transform 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+    transform: translateX(-50%) scale(1.1);
+    background-color: #f7c603;
+    box-shadow: none;
+    color: #595959;
+}
+
+.quiz-question {
+    text-align: center;
+}
+
+
+.results-character {
+    width: 450px; /* Adjust this value to change the size of the image */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.overlay-container {
+    position: relative;
+}
+
+.overlay-text-quiz2 {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 100px;
+    left: 32.5%;
+    color: black; /* Change this to the color you want for the text */
+    font-size: 190px; /* Change this to the size you want for the text */
+}
+
+.container-custom {
+    width: calc(100% - 160px); /* Subtract 100px (50px for each side) from the total width */
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.custom-img {
+    height: 180px;
+    padding: 10px;
+    object-fit: contain;
+}
+
+.left-spacing{
+    margin-left: 40px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 80%;
+    height: auto;
+    padding: 30px;
+    transition: transform 0.2s ease-in-out; /* Add this line */
+
+}
+
+.image-container img:hover {
+    transform: scale(1.02); /* Add this line */
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    color: #595959;
+    font-size: 12.5vw; /* Increase the font size */
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 1.1;
+}
+
+.page-paragraph {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    font-size: 1.3em;
+}
+
+.home-text{
+    font-weight: 200;
+    top: 80%;
+    font-size: 1.9vw;
+    left: 67%;
+    width: 60%;
+    white-space: wrap;
+}
+
+.rounded-rectangle {
+    transition: transform 0.3s ease-in-out; /* Add this line */
+}
+
+.rounded-rectangle:hover {
+    transform: scale(1.1); /* Add this line */
+}
+
+.result-number {
+    font-size: 24px !important;
+}
+
+@media (max-width: 1200px) {
+    .hide-on-collapse {
+        font-size: 0; /* Hide the original text */
+        visibility: hidden; /* Add this line */
+    }
+    .hide-on-collapse::after {
+        content: attr(data-short); /* Display the data-short value */
+        visibility: visible; /* Add this line */
+        font-size: initial; /* Add this line */
+    }
+}
+
+@media (max-width: 960px) {
+    .hide-on-collapse {
+        display: none; /* Hide the middle tabs */
+    }
+    .hide-on-collapse2 {
+        display: none; /* Hide the middle tabs */
+    }
+    .more-tab {
+        display: inline; /* Show the more-tab */
+    }
+}
+
+.full-width-column {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.full-width-column img {
+    width: auto; /* Set the width */
+    height: 100px; /* Set the height */
+    transition: transform 0.2s ease-in-out;
+}
+
+.full-width-column img:hover{
+    transform: scale(1.03);
+}
+
+.one-third-column {
+    background-color: #f6f6f6ff;
+    text-align: left;
+    border-radius: 20px;
+    padding:20px;
+    font-family: 'Roboto Slab', serif;
+    min-width: 200px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.one-third-column:hover{
+    transform: scale(1.03);
+}
+
+.one-third-column h1 {
+    font-weight: bolder;
+    font-size: 2em;
+    word-wrap: break-word;
+}
+
+.one-third-column li {
+    font-weight: lighter;
+    font-size: 1.5em;
+    padding:5px;
+}
+
+.two-thirds-column {
+    background-color: #f6f6f6ff;
+    text-align: center;
+    border-radius: 20px;
+    padding:30px;
+    min-width: 200px;
+    font-family: 'Roboto Slab', serif;
+    transition: transform 0.2s ease-in-out;
+}
+
+.two-thirds-column:hover {
+    transform: scale(1.03);
+}
+
+.two-thirds-column.left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 2px solid white;
+}
+
+.two-thirds-column h1 {
+    font-size:1.2em;
+    font-weight: 200;
+}
+
+.two-thirds-column p{
+    font-size: 3em;
+    letter-spacing: 10px;
+}
+
+.two-thirds-column.right {
+    padding-left: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.underline {
+    text-decoration: underline;
+    margin: 5px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.yellowhover:hover {
+    color:#f7c603;
+}
+
+.col-1 {
+    max-width: 70px; /* Adjust this value to change the width */
+}
+
+.col-7{
+    max-width: 1000px;
+}
+
+.fixed-size {
+    width: 300px;
+    height: auto;
+}
+
+.fixed-size-taller {
+    width: auto;
+    height: 230px;
+}
+

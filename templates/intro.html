@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Intro{% endblock %}
+
+{% block content %}
+    <div class="arrow">
+        <a href="/positions">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
+        </a>
+    </div>
+    <div class="back-arrow">
+        <a href="/">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Back Arrow">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">Introduction</h1>
+        <p class="page-paragraph">The numbers in springboard diving are a part of a coding system that classifies dives according to their flip position, the dive direction, and the number of somersaults and twists. This system allows judges, divers, and audiences to quickly understand the characteristics of a dive being performed. </p>
+        <p class="page-paragraph">Here's a breakdown of how to interpret these numbers:</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <div class="cell-content">
+                    <h2 class="cell-title">1. Direction</h2>
+                    <p>The first digit categorizes dives into groups based on starting and flip directions:</p>
+                    <ul>
+                        <li>1 - Forward</li>
+                        <li>2 - Backward</li>
+                        <li>3 - Reverse</li>
+                        <li>4 - Inward</li>
+                        <li>5 - Twister</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="cell-content">
+                    <h2 class="cell-title">2. Position</h2>
+                    <p>The last digit represents the position of the diver during the dive:</p>
+                    <ul>
+                        <li>A - Straight</li>
+                        <li>B - Pike</li>
+                        <li>C - Tuck</li>
+                        <li>D - Free</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="cell-content">
+                    <h2 class="cell-title">3. Rotation</h2>
+                    <p>
+                        The middle two digits represent the number of half flips and half twists in a dive. For non-twisting dives, this number simply indicates the total amount of rotation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

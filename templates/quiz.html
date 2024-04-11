@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Quiz{% endblock %}
+
+
+{% block content %}
+
+    <div class="back-arrow">
+        <a href="/twister">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">Quiz</h1>
+        <!-- <p class="page-paragraph">Dives that start with the number 5 are categorized as Twisting dives. These dives are initiated with the diver performing either a front, back, reverse, or inward takeoff and involve the combination of elements of somersaults and twists…
+        </p> -->
+    </div>
+
+    <label for="toggle-navbar">Toggle navigation bar and arrow buttons:</label>
+    <input type="checkbox" id="toggle-navbar" checked>
+
+    <form action="{{ url_for('quiz_results') }}" method="post">
+       
+        <div class = "quiz-question">
+            <label for="number-input">Input a number:</label>
+            <input type="number" id="number-input" name="number-input">
+        </div>
+        <button type="submit" class="btn btn-warning submit-button">Submit</button>
+    </form>
+{% endblock %}

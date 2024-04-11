@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Quiz Results{% endblock %}
+
+
+{% block content %}
+<div class="retry-button" {% if number_input == 10 %}style="display: none;"{% endif %}>
+    <a href="/quiz">
+        <img src="{{ url_for('static', filename='images/retry.png') }}" alt="Front Diagram">
+    </a>
+</div>
+<div>
+    <p class = "page-paragraph center-text">
+        {% if number_input == 10 %}
+            Perfect score!
+        {% else %}
+            Click the yellow button to retake…
+        {% endif %}
+    </p>
+</div>
+<div>
+    <div class="overlay-container">
+        <img src="{{ url_for('static', filename='images/results-character.png') }}" class="results-character" alt="Results Character">
+        <p class="overlay-text-quiz2" id = "overlay-text">{{ number_input }}</p>
+    </div>
+</div>
+{% endblock %}

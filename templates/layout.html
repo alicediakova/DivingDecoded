@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - DivingDecoded</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+</head>
+<body>
+    <nav>
+        <a href="/" class="overlay-link-divingboard {{ 'active-nav-item' if request.path == '/' else '' }}">
+            <span class="overlay-text-divingboard">DivingDecoded</span>
+            <img src="{{ url_for('static', filename='images/divingboard.png') }}" class="overlay-img-divingboard" alt="Diving Board Logo">
+        </a>
+        <a href="/intro" class="hide-on-collapse2 {{ 'active-nav-item' if request.path == '/intro' else '' }}" >Intro</a>
+        <a href="/positions" class="hide-on-collapse2 {{ 'active-nav-item' if request.path == '/positions' else '' }}">Positions</a>
+        <a href="/front" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/front' else '' }}" data-short="1">Front</a>
+        <a href="/back" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/back' else '' }}" data-short="2">Back</a>
+        <a href="/reverse" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/reverse' else '' }}" data-short="3">Reverse</a>
+        <a href="/inward" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/inward' else '' }}" data-short="4">Inward</a>
+        <a href="/twister" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/twister' else '' }}" data-short="5">Twister</a>
+        <a href="/quiz" class="overlay-link-quiz">
+            <span class="overlay-text-quiz {{ 'active-nav-item' if request.path == '/quiz' else '' }}" >Quiz</span>
+            <img src="{{ url_for('static', filename='images/quiz.png') }}" class="overlay-img-quiz" alt="Quiz Button Picture">
+        </a>
+        <span class="more-tab">...</span>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

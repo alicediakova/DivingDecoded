@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Twister{% endblock %}
+
+
+{% block content %}
+    <div class="arrow">
+        <a href="/quiz">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
+        </a>
+    </div>
+    <div class="back-arrow">
+        <a href="/inward">
+            <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Back Arrow">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">5 - Twister</h1>
+        <p class="page-paragraph">Dives that start with the number 5 are categorized as Twisting dives. These dives are initiated with the diver performing either a front, back, reverse, or inward takeoff and involve the combination of elements of somersaults and twists…
+        </p>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-3 one-third-column">
+                <h1>Key components:</h1>
+                <ul>
+                    <li>Second digit represents direction (front, back, reverse, or inward)</li>
+                    <li>Third digit represents number of half-flips</li>
+                    <li>Fourth digit represents number of half-twists</li>
+                    <li><strong>Position is always D (Free)</strong></li>
+                </ul>
+            </div>
+            <div class="col-1">
+            </div>
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-6 two-thirds-column left">
+                        <h1><span class="bold">Example 1:</span> “Front one-and-a-half flips, one-twist free”</h1>
+                        <p class = "yellowhover"><span class="underline">5</span><span class="underline">1</span><span class="underline">3</span><span class="underline">2</span><span class="underline">D</span></p>
+                        <img src="static/images/5132d_desc.png" alt="5132D Description" class="img-fluid fixed-size-taller">
+                    </div>
+                    <div class="col-6 two-thirds-column right">
+                        <h1><span class="bold">Example 2:</span> Example 2: “Back two-and-a-half flips, half-twist free”</h1>
+                        <p class = "yellowhover"><span class="underline">5</span><span class="underline">2</span><span class="underline">5</span><span class="underline">1</span><span class="underline">D</span></p>
+                        <img src="static/images/5251d_desc.png" alt="5251D Description" class="img-fluid fixed-size-taller">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
