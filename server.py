@@ -73,5 +73,9 @@ def get_visits():
         visits = [json.loads(line) for line in f]
     return jsonify(visits)
 
+@app.route('/video/<dive_code>')
+def video(dive_code):
+    return render_template('video.html', dive_code=dive_code)
+
 if __name__ == "__main__":
     app.run(debug=True)
