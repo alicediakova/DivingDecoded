@@ -75,6 +75,7 @@ def get_visits():
 
 @app.route('/video/<dive_code>')
 def video(dive_code):
+    log_visit(f'video/{dive_code}')
     return render_template('video.html', dive_code=dive_code)
 
 if __name__ == "__main__":
