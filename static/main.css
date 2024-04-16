@@ -233,6 +233,7 @@ nav a:hover {
 
 .quiz-question {
     text-align: center;
+    padding: 20px;
 }
 
 
@@ -492,4 +493,10 @@ video {
 .dive-code {
     text-align: center;
     padding: 20px;
+}
+
+.spacer {
+    display: block;
+    clear: both;
+    height: 100px !important;
 }

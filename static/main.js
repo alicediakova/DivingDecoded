@@ -25,3 +25,17 @@ function adjustTextPosition() {
 function changeImage(origImage, imageName) {
     document.querySelector(`.${origImage}`).src = `static/images/${imageName}.png`;
 }
+
+window.onload = function() {
+    document.getElementById('toggle-navbar').addEventListener('change', function() {
+        var navbar = document.getElementById('navbar');
+        var backButton = document.getElementById('back-button');
+        if (this.checked) {
+            navbar.style.display = 'block';
+            backButton.style.display = 'block';
+        } else {
+            navbar.style.display = 'none';
+            backButton.style.display = 'none';
+        }
+    });
+};
