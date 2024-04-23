@@ -306,7 +306,9 @@ nav a:hover {
     left: 67%;
     width: 60%;
     white-space: wrap;
+    padding-top: 40px;
 }
+
 
 .rounded-rectangle {
     transition: transform 0.3s ease-in-out; /* Add this line */
@@ -603,4 +605,14 @@ input:checked + .slider:before {
     display: flex;
     align-items: center;
     border-radius: 15px;
+}
+
+.pad-left-right {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.smaller {
+    padding-top: 20px;
+    font-size: 0.7em;
 }
