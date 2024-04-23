@@ -43,12 +43,20 @@
                 <div class="row">
                     <div class="col-6 two-thirds-column left">
                         <h1><span class="bold">Example 1:</span> “Reverse one-and-a-half straight”</h1>
-                        <p class = "yellowhover"><span class="underline">3</span><span class="underline">03</span><span class="underline">A</span></p>
+                        <p class = "yellowhover">
+                            <a href="{{ url_for('video', dive_code='303A') }}">
+                                <span class="underline">3</span><span class="underline">03</span><span class="underline">A</span>
+                            </a>
+                        </p>
                         <img src="static/images/303a_desc.png" alt="303A Description" class="img-fluid fixed-size">
                     </div>
                     <div class="col-6 two-thirds-column right">
-                        <h1><span class="bold">Example 2:</span> Reverse double tuck”</h1>
-                        <p class = "yellowhover"><span class="underline">3</span><span class="underline">04</span><span class="underline">C</span></p>
+                        <h1><span class="bold">Example 2:</span> "Reverse double tuck”</h1>
+                        <p class = "yellowhover">
+                            <a href="{{ url_for('video', dive_code='304C') }}">
+                                <span class="underline">3</span><span class="underline">04</span><span class="underline">C</span>
+                            </a>
+                        </p>
                         <img src="static/images/304c_desc.png" alt="304C Description" class="img-fluid fixed-size">
                     </div>
                 </div>

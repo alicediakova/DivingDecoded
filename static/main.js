@@ -18,8 +18,8 @@ function adjustTextPosition() {
         overlayText.style.transform = 'scaleX(0.8)'; // Make it 80% of the original width
     }
 
-    // Set the height
-    overlayText.style.height = '200px'; // Adjust this value as needed
+    // Set the vertical position
+    overlayText.style.top = '40px';
 }
 
 function changeImage(origImage, imageName) {
@@ -36,6 +36,30 @@ window.onload = function() {
         } else {
             navbar.style.display = 'none';
             backButton.style.display = 'none';
+        }
+    });
+};
+
+window.onload = function() {
+    var videoSwitch = document.getElementById('videoSwitch');
+    var regularVideo = document.getElementById('regularVideo');
+    var slowVideo = document.getElementById('slowVideo');
+
+    videoSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            regularVideo.style.display = 'none';
+            slowVideo.style.display = 'block';
+            if (!regularVideo.paused) {
+                regularVideo.pause();
+                slowVideo.play();
+            }
+        } else {
+            regularVideo.style.display = 'block';
+            slowVideo.style.display = 'none';
+            if (!slowVideo.paused) {
+                slowVideo.pause();
+                regularVideo.play();
+            }
         }
     });
 };

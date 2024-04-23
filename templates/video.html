@@ -8,17 +8,13 @@
     </div> 
     <div class="container">
         <h1 class="dive-code">{{ dive_code }}</h1>
-        <table>
-            <tr>
-                <td>
-                    <p>Slow Motion:</p>
-                    <video src="{{ url_for('static', filename='videos/' + dive_code + '_slow.mov') }}" controls></video>
-                </td>
-                <td>
-                    <p>Regular Speed:</p>
-                    <video src="{{ url_for('static', filename='videos/' + dive_code + '.mov') }}" controls></video>
-                </td>
-            </tr>
-        </table>
+        <label class="switch">
+            <input type="checkbox" id="videoSwitch">
+            <span class="slider round"></span>
+        </label>
+        <div class="video-container">
+            <video id="regularVideo" src="{{ url_for('static', filename='videos/' + dive_code + '.mov') }}" controls></video>
+            <video id="slowVideo" src="{{ url_for('static', filename='videos/' + dive_code + '_slow.mov') }}" controls style="display: none;"></video>
+        </div>
     </div>
 {% endblock %}

@@ -5,24 +5,24 @@
 
 
 {% block content %}
-<div class="retry-button" {% if number_input == 10 %}style="display: none;"{% endif %}>
+<!-- <div class="retry-button" {% if number_input == 10 %}style="display: none;"{% endif %}>
     <a href="/quiz">
-        <img src="{{ url_for('static', filename='images/retry.png') }}" alt="Front Diagram">
+        <img src="{{ url_for('static', filename='images/retry.png') }}" alt="Retry Quiz Button">
     </a>
-</div>
+</div> -->
 <div>
-    <p class = "page-paragraph center-text">
+    <a href="/quiz_feedback" class = "page-paragraph center-text">
         {% if number_input == 10 %}
             Perfect score!
         {% else %}
-            Click the yellow button to retake…
+            Click here to review your answers
         {% endif %}
-    </p>
+    </a>
 </div>
 <div>
     <div class="overlay-container">
         <img src="{{ url_for('static', filename='images/results-character.png') }}" class="results-character" alt="Results Character">
-        <p class="overlay-text-quiz2" id = "overlay-text">{{ number_input }}</p>
+        <p class="overlay-text-quiz2" id="overlay-text">{{ number_input }}</p>
     </div>
 </div>
 {% endblock %}

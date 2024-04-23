@@ -4,11 +4,17 @@ import json
 
 app = Flask(__name__)
 
+questions = ['']*10
 solutions = [0]*10
+questions[0] = "What dive direction does this diagram represent?"
 solutions[0] = 4 # Question 1: What dive direction does this diagram represent? 4 = Inward
+questions[1] = "Back dives start with which number?"
 solutions[1] = 2 # Question 2: Back dives start with which number? 2
+questions[2] = "The letter B represents which position?"
 solutions[2] = 1 # Question 3: The letter B represents which position? 1 = Pike
+questions[3] = 'What is the description for the dive “5333D"?'
 solutions[3] = 4 # Question 4: What is the description for the dive “5333D”? 4 = Reverse one-and-a-half flips, one-and-a-half twists free
+questions[4] = 'What is the dive number for the following dive description “Front triple tuck”?'
 solutions[4] = 3 # Question 5: What is the dive number for the following dive description “Front triple tuck”? 3 = 106C
 solutions[5] = 1 # Question 6: What dive direction does this diagram represent? 1 = Front
 solutions[6] = 5 # Question 7: Twisting dives start with which number? 5
@@ -130,6 +136,13 @@ def quiz_results():
     log_submission(answers, score)
 
     return render_template('quiz_results.html', number_input=score)
+
+@app.route('/quiz_feedback')
+def quiz_feedback():
+    with open('quiz_logs.json', 'r') as f:
+        last_submission = list(f)[-1]
+    submission = json.loads(last_submission)
+    return render_template('quiz_feedback.html', solutions=solutions, submission=submission)
 
 @app.route('/visits')
 def get_visits():

@@ -1,0 +1,127 @@
+[
+    {
+        "id": 1,
+        "question": "What dive direction does this diagram represent?",
+        "options": ["Front", "Back", "Reverse", "Inward", "Twister"],
+        "answer": "Front",
+        "image": "front1.png",
+        "video": null,
+        "type": "0"
+    },
+    {
+        "id": 2,
+        "question": "What dive direction does this diagram represent?",
+        "options": ["Front", "Back", "Reverse", "Inward", "Twister"],
+        "answer": "Back",
+        "image": "back1.png",
+        "video": null,
+        "type": "0"
+    },
+    {
+        "id": 3,
+        "question": "What dive direction does this diagram represent?",
+        "options": ["Front", "Back", "Reverse", "Inward", "Twister"],
+        "answer": "Reverse",
+        "image": "reverse1.png",
+        "video": null,
+        "type": "0"
+    },
+    {
+        "id": 4,
+        "question": "What dive direction does this diagram represent?",
+        "options": ["Front", "Back", "Reverse", "Inward", "Twister"],
+        "answer": "Inward",
+        "image": "inward1.png",
+        "video": null,
+        "type": "0"
+    },
+    {
+        "id": 5,
+        "question": "Front dives start with which number?",
+        "options": ["1", "2", "3", "4", "5"],
+        "answer": "1",
+        "image": null,
+        "video": null,
+        "type": "1"
+    },
+    {
+        "id": 6,
+        "question": "Back dives start with which number?",
+        "options": ["1", "2", "3", "4", "5"],
+        "answer": "2",
+        "image": null,
+        "video": null,
+        "type": "1"
+    },
+    {
+        "id": 7,
+        "question": "Reverse dives start with which number?",
+        "options": ["1", "2", "3", "4", "5"],
+        "answer": "3",
+        "image": null,
+        "video": null,
+        "type": "1"
+    },
+    {
+        "id": 8,
+        "question": "Inward dives start with which number?",
+        "options": ["1", "2", "3", "4", "5"],
+        "answer": "4",
+        "image": null,
+        "video": null,
+        "type": "1"
+    },
+    {
+        "id": 9,
+        "question": "Twisting dives start with which number?",
+        "options": ["1", "2", "3", "4", "5"],
+        "answer": "5",
+        "image": null,
+        "video": null,
+        "type": "1"
+    },
+    {
+        "id": 10,
+        "question": "The letter A represents which position?",
+        "options": ["Straight", "Pike", "Tuck", "Free"],
+        "answer": "Straight",
+        "image": null,
+        "video": null,
+        "type": "2"
+    },
+    {
+        "id": 11,
+        "question": "The letter B represents which position?",
+        "options": ["Straight", "Pike", "Tuck", "Free"],
+        "answer": "Pike",
+        "image": null,
+        "video": null,
+        "type": "2"
+    },
+    {
+        "id": 12,
+        "question": "The letter C represents which position?",
+        "options": ["Straight", "Pike", "Tuck", "Free"],
+        "answer": "Tuck",
+        "image": null,
+        "video": null,
+        "type": "2"
+    },
+    {
+        "id": 13,
+        "question": "The letter D represents which position?",
+        "options": ["Straight", "Pike", "Tuck", "Free"],
+        "answer": "Free",
+        "image": null,
+        "video": null,
+        "type": "2"
+    }
+]
+
+questions[3] = 'What is the description for the dive “5333D"?'
+solutions[3] = 4 # Question 4: What is the description for the dive “5333D”? 4 = Reverse one-and-a-half flips, one-and-a-half twists free
+questions[4] = 'What is the dive number for the following dive description “Front triple tuck”?'
+solutions[4] = 3 # Question 5: What is the dive number for the following dive description “Front triple tuck”? 3 = 106C
+questions[5] = 
+solutions[8] = "105B" # Question 9: What is the dive number for this dive? 203B
+solutions[9] = "5132D" # Question 10: What is the dive number for this dive? 5132D

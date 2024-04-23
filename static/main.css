@@ -148,11 +148,6 @@ nav a:hover {
     margin-left: 5px;
     line-height: 2.5;
 }
-
-.center-text {
-    text-align: center;
-}
-
 .page-title {
     font-family: 'Montserrat', sans-serif;
     margin-top: 35px;
@@ -302,16 +297,6 @@ nav a:hover {
     text-align: left;
     white-space: nowrap;
     line-height: 1.1;
-}
-
-.page-paragraph {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 300;
-    margin-left: 90px;
-    margin-right: 90px;
-    margin-bottom: 0;
-    margin-top: 15px;
-    font-size: 1.3em;
 }
 
 .home-text{
@@ -474,6 +459,7 @@ a {
 
 a:hover {
     color: #f7c603;
+    text-decoration: none;
 }
 
 table {
@@ -499,4 +485,122 @@ video {
     display: block;
     clear: both;
     height: 100px !important;
+}
+
+.page-paragraph {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    font-size: 1.3em;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.page-paragraph.center-text {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    font-weight: bold;
+}
+
+.switch {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px; /* Adjust as needed */
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f7c603;
+    transition: .4s;
+    justify-content: center;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* input:checked + .slider {
+    background-color: #f7c603;
+} */
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Add labels for Regular Speed and Slow Motion */
+.switch:before {
+    content: "Regular Speed";
+    position: absolute;
+    right: 100%;
+    white-space: nowrap;
+    padding-right: 10px;
+    top: 6px;
+}
+
+.switch:after {
+    content: "Slow Motion";
+    position: absolute;
+    left: 100%;
+    white-space: nowrap;
+    padding-left: 10px;
+    top: 6px;
+}
+
+.video-container {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #f6f6f6ff; /* Adjust as needed */
+    background-color: #f6f6f6ff;
+    border-radius: 15px; /* Adjust as needed */
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.video-container video {
+    height: 65vh;
+    object-fit: contain;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
 }

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Quiz Feedback{% endblock %}
+
+
+{% block content %}
+
+    <div class="retry-button">
+        <a href="/quiz">
+            <img src="{{ url_for('static', filename='images/retry.png') }}" alt="Retry Quiz Button">
+        </a>
+    </div>
+    <div class="center-text">
+        <h1 class="page-title">Quiz Feedback</h1>
+    </div>
+    <p>Your Answers:</p>
+    <ul>
+    {% for question, answer in submission.answers %}
+        <li>{{ question }}: {{ answer }}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

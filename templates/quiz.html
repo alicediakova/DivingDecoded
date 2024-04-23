@@ -6,17 +6,18 @@
 
 {% block content %}
 
-    <div class="back-arrow" id = "back-button">
+    <!-- <div class="back-arrow" id = "back-button">
         <a href="/twister">
             <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
         </a>
-    </div>
+    </div> -->
     <div class="center-text">
         <h1 class="page-title">Quiz</h1>
     </div>
 
-    <label for="toggle-navbar">Toggle navigation bar and arrow buttons:</label>
-    <input type="checkbox" id="toggle-navbar" checked>
+    <!-- Uncomment this if you want toggleable navigation bar and arrow buttons: -->
+    <!-- <label for="toggle-navbar">Toggle navigation bar and arrow buttons:</label>
+    <input type="checkbox" id="toggle-navbar" checked> -->
 
     <form action="{{ url_for('quiz_results') }}" method="post">
         <!-- QUESTION 1 -->
