@@ -1,26 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 from datetime import datetime
-import json
+import json, random
 
 app = Flask(__name__)
-
-questions = ['']*10
-solutions = [0]*10
-questions[0] = "What dive direction does this diagram represent?"
-solutions[0] = 4 # Question 1: What dive direction does this diagram represent? 4 = Inward
-questions[1] = "Back dives start with which number?"
-solutions[1] = 2 # Question 2: Back dives start with which number? 2
-questions[2] = "The letter B represents which position?"
-solutions[2] = 1 # Question 3: The letter B represents which position? 1 = Pike
-questions[3] = 'What is the description for the dive “5333D"?'
-solutions[3] = 4 # Question 4: What is the description for the dive “5333D”? 4 = Reverse one-and-a-half flips, one-and-a-half twists free
-questions[4] = 'What is the dive number for the following dive description “Front triple tuck”?'
-solutions[4] = 3 # Question 5: What is the dive number for the following dive description “Front triple tuck”? 3 = 106C
-solutions[5] = 1 # Question 6: What dive direction does this diagram represent? 1 = Front
-solutions[6] = 5 # Question 7: Twisting dives start with which number? 5
-solutions[7] = 3 # Question 8: The letter D represents which position? 3 = Free
-solutions[8] = "105B" # Question 9: What is the dive number for this dive? 203B
-solutions[9] = "5132D" # Question 10: What is the dive number for this dive? 5132D
 
 
 # Function to log page visits
@@ -89,60 +71,71 @@ def twister():
 @app.route('/quiz')
 def quiz():
     log_visit('quiz')
-    return render_template('quiz.html')
+    # Load questions from questions.json
+    with open('questions.json') as f:
+        all_questions = json.load(f)
+
+    # Group questions by type
+    questions_by_type = {'0': [], '1': [], '2': []}
+    for question in all_questions:
+        questions_by_type[question['type']].append(question)
+
+    # Select 2 random questions from each type
+    questions = []
+    for question_type in questions_by_type:
+        questions += random.sample(questions_by_type[question_type], 2)
+
+    # Render template with questions
+    return render_template('quiz.html', questions=questions)
+
+
+# want answers to look like: {id: {user answer, correct answer}...} -> where all elements are ints
 
 @app.route('/quiz_results', methods=['POST'])
 def quiz_results():
     log_visit('quiz_results')
-    answers = []
-    number_input1 = int(request.form['number-input1'])
-    answers.append(number_input1)
-    number_input2 = int(request.form['number-input2'])
-    answers.append(number_input2)
-    number_input3 = int(request.form['number-input3'])
-    answers.append(number_input3)
-    number_input4 = int(request.form['number-input4'])
-    answers.append(number_input4)
-    number_input5 = int(request.form['number-input5'])
-    answers.append(number_input5)
-    # number_input6 = int(request.form['number-input6'])
-    # number_input7 = int(request.form['number-input7'])
-    # number_input8 = int(request.form['number-input8'])
-    # number_input9 = int(request.form['number-input9'])
-    # number_input10 = int(request.form['number-input10'])
+    form_answers = request.form.to_dict()  # Get all form data
 
+    answers = {}
+    for key, val in form_answers.items():
+        answers[int(key.replace('number-input', ''))] = [int(val)-1,-1]
+
+    # Load questions from questions.json
+    with open('questions.json') as f:
+        all_questions = json.load(f)
+
+    # Get the correct answers
+    correct_answers = {q['id']: q['answer'] for q in all_questions}
+
+    # Calculate score
     score = 0
-    if number_input1 == solutions[0]:
-        score += 1
-    if number_input2 == solutions[1]:
-        score += 1
-    if number_input3 == solutions[2]:
-        score += 1
-    if number_input4 == solutions[3]:
-        score += 1
-    if number_input5 == solutions[4]:
-        score += 1
-    # if number_input6 == solutions[5]:
-    #     score += 1
-    # if number_input7 == solutions[6]:
-    #     score += 1
-    # if number_input8 == solutions[7]:
-    #     score += 1
-    # if number_input9 == solutions[8]:
-    #     score += 1
-    # if number_input10 == solutions[9]:
-    #     score += 1
+    for key, val in answers.items():
+        user_answer = val[0]
+        if correct_answers[key] == user_answer:
+            score += 1
+        answers[key][1] = correct_answers[key]
 
     log_submission(answers, score)
 
+    # Render template with score
     return render_template('quiz_results.html', number_input=score)
 
 @app.route('/quiz_feedback')
 def quiz_feedback():
+    # Load last submission from quiz_logs.json
     with open('quiz_logs.json', 'r') as f:
-        last_submission = list(f)[-1]
-    submission = json.loads(last_submission)
-    return render_template('quiz_feedback.html', solutions=solutions, submission=submission)
+        last_submission = json.loads(list(f)[-1])
+
+    # Load questions from questions.json
+    with open('questions.json') as f:
+        all_questions = json.load(f)
+
+    # Filter questions to only include those in the answers keys
+    answered_questions = [q for q in all_questions if str(q['id']) in last_submission['answers'].keys()]
+    print(answered_questions)
+
+    # Render template with last submission and answered questions
+    return render_template('quiz_feedback.html', submission=last_submission, questions=answered_questions)
 
 @app.route('/visits')
 def get_visits():

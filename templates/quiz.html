@@ -20,88 +20,42 @@
     <input type="checkbox" id="toggle-navbar" checked> -->
 
     <form action="{{ url_for('quiz_results') }}" method="post">
-        <!-- QUESTION 1 -->
-        <div class="quiz-question">
-            <label for="number-input1">Question 1: What dive direction does this diagram represent?
-            </label>
-            <div class="col-12 full-width-column">
-                <img src="static/images/inward1.png" alt="Inward Diagram" class="img-fluid back">
-            </div>
-            <div id="number-input1">
-                <input type="radio" id="number1" name="number-input1" value="1">
-                <label for="number1">Front</label><br>
-                <input type="radio" id="number2" name="number-input1" value="2">
-                <label for="number2">Back</label><br>
-                <input type="radio" id="number3" name="number-input1" value="3">
-                <label for="number3">Reverse</label><br>
-                <input type="radio" id="number4" name="number-input1" value="4">
-                <label for="number4">Inward</label><br>
-                <input type="radio" id="number5" name="number-input1" value="5">
-                <label for="number5">Twister</label><br>
-            </div>
-        </div>
-        <!-- QUESTION 2 -->
-        <div class="quiz-question">
-            <label for="number-input2">Question 2: Back dives start with which number?
-            </label>
-            <div id="number-input2">
-                <input type="radio" id="number1" name="number-input2" value="1">
-                <label for="number1">1</label><br>
-                <input type="radio" id="number2" name="number-input2" value="2">
-                <label for="number2">2</label><br>
-                <input type="radio" id="number3" name="number-input2" value="3">
-                <label for="number3">3</label><br>
-                <input type="radio" id="number4" name="number-input2" value="4">
-                <label for="number4">4</label><br>
-                <input type="radio" id="number5" name="number-input2" value="5">
-                <label for="number5">5</label><br>
-            </div>
-        </div>
-        <!-- QUESTION 3 -->
-        <div class="quiz-question">
-            <label for="number-input3">Question 3: The letter B represents which position?
-            </label>
-            <div id="number-input3">
-                <input type="radio" id="number1" name="number-input3" value="1">
-                <label for="number1">Pike</label><br>
-                <input type="radio" id="number2" name="number-input3" value="2">
-                <label for="number2">Straight</label><br>
-                <input type="radio" id="number3" name="number-input3" value="3">
-                <label for="number3">Free</label><br>
-                <input type="radio" id="number4" name="number-input3" value="4">
-                <label for="number4">Tuck</label><br>
-            </div>
-        </div>
-        <!-- QUESTION 4 -->
-        <div class="quiz-question">
-            <label for="number-input4">Question 4: What is the description for the dive “5333D”?
-            </label>
-            <div id="number-input4">
-                <input type="radio" id="number1" name="number-input4" value="1">
-                <label for="number1">Back two-and-a-half straight</label><br>
-                <input type="radio" id="number2" name="number-input4" value="2">
-                <label for="number2">Inward one-and-a-half flips, one-and-a-half twists free</label><br>
-                <input type="radio" id="number3" name="number-input4" value="3">
-                <label for="number3">Front double free</label><br>
-                <input type="radio" id="number4" name="number-input4" value="4">
-                <label for="number4">Reverse one-and-a-half flips, one-and-a-half twists free</label><br>
-            </div>
-        </div>
-        <!-- QUESTION 5 -->
-        <div class="quiz-question">
-            <label for="number-input5">Question 5: What is the dive number for the following dive description “Front triple tuck”?
-            </label>
-            <div id="number-input5">
-                <input type="radio" id="number1" name="number-input5" value="1">
-                <label for="number1">205C</label><br>
-                <input type="radio" id="number2" name="number-input5" value="2">
-                <label for="number2">5132D</label><br>
-                <input type="radio" id="number3" name="number-input5" value="3">
-                <label for="number3">106C</label><br>
-                <input type="radio" id="number4" name="number-input5" value="4">
-                <label for="number4">107C</label><br>
-            </div>
-        </div>
+
+        <table class = "quiz-table container-custom">
+            {% for question in questions %}
+                {% if loop.index is odd %}
+                    <tr>
+                {% endif %}
+                        <td class="quiz-question cell-content">
+                            <h2>Question {{ loop.index }}</h2>
+                            {% if question.image %}
+                                <div class="col-12 full-width-column">
+                                    <img src="{{ url_for('static', filename='images/' + question.image) }}" alt="{{ question.image }}" class="img-fluid">
+                                </div>
+                            {% endif %}
+                            {% if question.video %}
+                                <div class="col-12 full-width-column">
+                                    <video controls>
+                                        <source src="{{ url_for('static', filename='videos/' + question.video) }}" type="video/mp4">
+                                    </video>
+                                </div>
+                            {% endif %}
+                            <label class = "question-label">{{ question.question }}</label>
+                            <div id="number-input{{ question.id }}">
+                                {% for option in question.options %}
+                                    <input type="radio" id="number{{ question.id }}-option{{ loop.index }}" name="number-input{{ question.id }}" value="{{ loop.index }}">
+                                    <label for="number{{ question.id }}-option{{ loop.index }}">{{ option }}</label><br>
+                                {% endfor %}
+                            </div>
+                        </td>
+                {% if loop.index is even %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            {% if questions|length is odd %}
+                </tr>
+            {% endif %}
+        </table>
         <div class = "spacer">
         </div>
         <button type="submit" class="btn btn-warning submit-button">Submit</button>

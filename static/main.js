@@ -63,3 +63,7 @@ window.onload = function() {
         }
     });
 };
+
+if (question['options'][submission['answers'][question.id]][0] != question['options'][question.answer]) {
+    document.getElementById('correct-answer').style.color = 'yellow';
+}

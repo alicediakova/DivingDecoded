@@ -14,11 +14,64 @@
     <div class="center-text">
         <h1 class="page-title">Quiz Feedback</h1>
     </div>
-    <p>Your Answers:</p>
-    <ul>
-    {% for question, answer in submission.answers %}
-        <li>{{ question }}: {{ answer }}</li>
-    {% endfor %}
-    </ul>
+    
+    <table class = "quiz-table container-custom">
+        {% for question in questions %}
+            {% if loop.index is odd %}
+                <tr>
+            {% endif %}
+                    <td class="quiz-question cell-content">
+                        <h2>Question {{ loop.index }}</h2>
+                        {% if question.image %}
+                            <div class="col-12 full-width-column">
+                                <img src="{{ url_for('static', filename='images/' + question.image) }}" alt="{{ question.image }}" class="img-fluid">
+                            </div>
+                        {% endif %}
+                        {% if question.video %}
+                            <div class="col-12 full-width-column">
+                                <video controls>
+                                    <source src="{{ url_for('static', filename='videos/' + question.video) }}" type="video/mp4">
+                                </video>
+                            </div>
+                        {% endif %}
+                        <label class = "question-label">{{ question.question }}</label>
+                        <p style="color: {% if question['options'][submission['answers'][question.id|string][0]] == question['options'][question.answer] %}#93c47d{% else %}#e06666{% endif %}">Your answer: {{ question['options'][submission['answers'][question.id|string][0]] }}</p>
+                        {% if question['options'][submission['answers'][question.id|string][0]] != question['options'][question.answer] %}
+                            <p class="correct-answer">Correct answer: {{ question['options'][question.answer] }}</p>
+                        {% endif %}
+                    </td>
+            {% if loop.index is even %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+        {% if questions|length is odd %}
+            </tr>
+        {% endif %}
+    </table>
+
+
+    <!-- {% for question in questions %}
+    <div class="quiz-question">
+        <h2>Question {{ loop.index }}</h2>
+        {% if question.image %}
+            <div class="col-12 full-width-column">
+                <img src="{{ url_for('static', filename='images/' + question.image) }}" alt="{{ question.image }}" class="img-fluid">
+            </div>
+        {% endif %}
+        {% if question.video %}
+            <div class="col-12 full-width-column">
+                <video controls>
+                    <source src="{{ url_for('static', filename='videos/' + question.video) }}" type="video/mp4">
+                </video>
+            </div>
+        {% endif %}
+        <label class = "question-label">{{ question.question }}</label>
+        <p style="color: {% if question['options'][submission['answers'][question.id|string][0]] == question['options'][question.answer] %}#93c47d{% else %}#e06666{% endif %}">Your answer: {{ question['options'][submission['answers'][question.id|string][0]] }}</p>
+        {% if question['options'][submission['answers'][question.id|string][0]] != question['options'][question.answer] %}
+            <p class="correct-answer">Correct answer: {{ question['options'][question.answer] }}</p>
+        {% endif %}
+    </div>
+    {% endfor %} -->
 
 {% endblock %}
+

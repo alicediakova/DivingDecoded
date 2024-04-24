@@ -151,7 +151,7 @@ nav a:hover {
 .page-title {
     font-family: 'Montserrat', sans-serif;
     margin-top: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     font-size: 3.5em;
     font-weight: lighter;
 }
@@ -224,6 +224,10 @@ nav a:hover {
     background-color: #f7c603;
     box-shadow: none;
     color: #595959;
+}
+
+.correct-answer {
+    color: #f7c603;
 }
 
 .quiz-question {
@@ -615,4 +619,24 @@ input:checked + .slider:before {
 .smaller {
     padding-top: 20px;
     font-size: 0.7em;
+}
+
+.question-label{
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.quiz-table {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-collapse: separate;  /* Required for border-spacing to work */
+    border-spacing: 20px 20px;  /* Add horizontal space between table cells */
+}
+
+@media screen and (max-width: 900px) {
+
+    .quiz-table td {
+        display: block;
+        width: 100%;
+    }
 }
