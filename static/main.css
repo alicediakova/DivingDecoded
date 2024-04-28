@@ -640,3 +640,66 @@ input:checked + .slider:before {
         width: 100%;
     }
 }
+
+#help-button {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background-color: #f7c603;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    transition: transform 0.2s ease-in-out;
+}
+
+#help-button button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+}
+
+#help-button:hover {
+    transform: scale(1.1);
+}
+
+#help-popup {
+    position: fixed;
+    font-family: 'Montserrat', sans-serif;
+    bottom: 50px;
+    left: 50px;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #595959; /* Dark grey border */
+    border-radius: 10px; /* Rounded corners */
+    z-index: 9999; /* Add this line */
+    color: #595959;
+}
+
+#help-popup.hidden {
+    display: none;
+}
+
+#help-popup button {
+    background-color: #f7c603; /* Yellow background */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.ripple {
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(247, 198, 3, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 20px rgba(247, 198, 3, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(247, 198, 3, 0);
+    }
+}

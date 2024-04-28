@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    {% if request.path != '/quiz' %}
     <nav id = "navbar">
         <a href="/" class="overlay-link-divingboard {{ 'active-nav-item' if request.path == '/' else '' }}">
             <span class="overlay-text-divingboard">DivingDecoded</span>
@@ -22,12 +23,31 @@
         <a href="/reverse" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/reverse' else '' }}" data-short="3">Reverse</a>
         <a href="/inward" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/inward' else '' }}" data-short="4">Inward</a>
         <a href="/twister" class="hide-on-collapse {{ 'active-nav-item' if request.path == '/twister' else '' }}" data-short="5">Twister</a>
-        <a href="/quiz" class="overlay-link-quiz">
+        <a href="/quiz" class="overlay-link-quiz" onclick="return confirmQuiz();">
             <span class="overlay-text-quiz {{ 'active-nav-item' if request.path == '/quiz' else '' }}" >Quiz</span>
             <img src="{{ url_for('static', filename='images/quiz.png') }}" class="overlay-img-quiz" alt="Quiz Button Picture">
         </a>
         <span class="more-tab">...</span>
     </nav>
+    {% endif %}
+    
+
+    {% if request.path in ['/front', '/back', '/reverse', '/inward'] %}
+    <!-- Button -->
+    <div id="help-button" class="ripple" onclick="openPopup();">
+        <button>!</button>
+    </div>
+    
+    <!-- Popup -->
+    <div id="help-popup" class="hidden">
+        <p>To interact with this page:</p>
+        <ol>
+            <li><strong>Hover</strong> over bolded phrases in "Key Components".</li>
+            <li><strong>Click</strong> the dive numbers in the example sections.</li>
+        </ol>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    {% endif %}
     
     {% block content %}
     {% endblock %}

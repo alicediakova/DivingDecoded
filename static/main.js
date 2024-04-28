@@ -67,3 +67,30 @@ window.onload = function() {
 if (question['options'][submission['answers'][question.id]][0] != question['options'][question.answer]) {
     document.getElementById('correct-answer').style.color = 'yellow';
 }
+
+function openPopup() {
+    document.getElementById('help-popup').classList.remove('hidden');
+}
+
+function closePopup() {
+    document.getElementById('help-popup').classList.add('hidden');
+    document.getElementById('help-button').classList.remove('ripple');
+    localStorage.setItem('popupClosed', 'true');
+}
+
+window.onload = function() {
+    var helpButton = document.getElementById('help-button');
+    if (helpButton) {
+        if (!localStorage.getItem('popupClosed')) {
+            helpButton.classList.add('ripple');
+        }
+
+        helpButton.onclick = function() {
+            openPopup();
+        }
+    }
+}
+
+function confirmQuiz() {
+    return confirm('Are you sure you are ready for the quiz?');
+}
