@@ -194,12 +194,12 @@
         "id": 14,
         "question": "What is the dive description for this dive?",
         "options": [
-            "Inward 2 1/2 Somersault Pike",
             "Reverse 1 1/2 Somersault Straight",
-            "Back 1 1/2 Somersault Pike",
-            "Forward 1 1/2 Somersault Pike"
+            "Inward 2 1/2 Somersault Pike",
+            "Forward Dive Tuck",
+            "Back 1 Somersault 1 1/2 Twist Free"
         ],
-        "answer": 0,
+        "answer": 1,
         "image": null,
         "video": "405b.mov",
         "type": "3"
@@ -208,24 +208,10 @@
         "id": 15,
         "question": "What is the dive number for this dive?",
         "options": [
-            "303A",
-            "403B",
-            "104B",
-            "203B"
-        ],
-        "answer": 0,
-        "image": null,
-        "video": "303a.mov",
-        "type": "3"
-    },
-    {
-        "id": 16,
-        "question": "What is the dive description for this dive?",
-        "options": [
-            "Forward 3 1/2 Somersault Tuck",
-            "Back 1 Somersault 2 1/2 Twist Free",
-            "Forward 3 1/2 Somersault Pike",
-            "Inward 2 1/2 Somersault Tuck"
+            "107C",
+            "101C",
+            "404C",
+            "207C"
         ],
         "answer": 0,
         "image": null,
@@ -233,15 +219,29 @@
         "type": "3"
     },
     {
+        "id": 16,
+        "question": "What is the dive description for this dive?",
+        "options": [
+            "Forward 1 1/2 Somersault Pike",
+            "Back Dive Tuck",
+            "Forward Dive Pike",
+            "Inward 2 1/2 Somersault Tuck"
+        ],
+        "answer": 1,
+        "image": null,
+        "video": "201c.mov",
+        "type": "3"
+    },
+    {
         "id": 17,
         "question": "What is the dive number for this dive?",
         "options": [
-            "103B",
-            "202C",
-            "203B",
-            "405C"
+            "404C",
+            "303A",
+            "301C",
+            "103B"
         ],
-        "answer": 0,
+        "answer": 3,
         "image": null,
         "video": "103b.mov",
         "type": "3"

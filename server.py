@@ -113,6 +113,8 @@ def quiz():
             for temp_question in random.sample(questions_by_type[question_type], 4):
                 #print(temp_question)
                 random_dive_number = random.choice(list(dive_numbers.keys()))
+                # print(list(dive_numbers.keys()))
+                # print(video_dive_numbers)
                 while random_dive_number in selected_dives or random_dive_number not in video_dive_numbers:
                     random_dive_number = random.choice(list(dive_numbers.keys()))
                 # at this point we have a unique dive number for this quiz
@@ -127,7 +129,7 @@ def quiz():
                 if temp_question['video'] == '_slow':
                     video += '_slow'
                 video += '.mov'
-                print(video)
+                # print(video)
                 if 'description' in temp_question['question']:
                     # we want to add descriptions as options
                     # print('desc question')
@@ -248,7 +250,7 @@ def quiz_feedback():
 
     # Filter questions to only include those in the answers keys
     answered_questions = [q for q in all_questions if str(q['id']) in last_submission['answers'].keys()]
-    print(answered_questions)
+    # print(answered_questions)
 
     # Render template with last submission and answered questions
     return render_template('quiz_feedback.html', submission=last_submission, questions=answered_questions)
