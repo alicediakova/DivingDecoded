@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="arrow">
-        <a href="/quiz">
+        <a href="/quiz" onclick="return confirmQuiz();">
             <img src="{{ url_for('static', filename='images/right_arrow.png') }}" alt="Right Arrow">
         </a>
     </div>
